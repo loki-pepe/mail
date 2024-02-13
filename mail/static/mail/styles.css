@@ -137,6 +137,12 @@ button:disabled {
     text-overflow: ellipsis;
 }
 
+.empty {
+    color:rgb(150, 150, 150);
+    text-align: center;
+    margin-top: 1.6em;
+}
+
 #error-screen {
     display: none;
     position: absolute;

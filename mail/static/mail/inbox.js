@@ -179,10 +179,18 @@ function mailbox_page(emails) {
   }
 
   // Load emails into mailbox
-  const slicedEmails = mailboxEmails.slice(start, end);
-  for (let email of slicedEmails) {
-    add_email(email);
+  if (emails.length > 0) {
+    const slicedEmails = mailboxEmails.slice(start, end);
+    for (let email of slicedEmails) {
+      add_email(email);
+    }
+  } else {
+    const emptyMailbox = document.createElement('div');
+    emptyMailbox.innerHTML = `Your ${mb} folder is empty.`;
+    emptyMailbox.className = 'empty';
+    document.getElementById('mailbox-box').append(emptyMailbox);
   }
+
 
   // Create previous page button and add event listener
   const bckBtn = document.createElement('button');
