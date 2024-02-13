@@ -205,7 +205,7 @@ function mailbox_page(emails) {
   });
 
   // Load pagination info
-  document.getElementById('mailbox-page').innerHTML = `${start+1}-${end} of ${length}`;
+  document.getElementById('mailbox-page').innerHTML = `${end > 0 ? start+1 : 0}-${end} of ${length}`;
 
   // Toggle pagination buttons
   start > 1 ? bckBtn.removeAttribute('disabled') : bckBtn.setAttribute('disabled', '');
