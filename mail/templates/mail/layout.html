@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Mail{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'mail/styles.css' %}">
+        <script src="{% static 'mail/inbox.js' %}"></script>
+    </head>
+    <body>
+        <div>
+            {% block body %}
+            {% endblock %}
+        </div>
+        <div id="error-screen">
+            <div id="popup">
+                <div id="message"></div>
+                <div id="popup-btn-box">
+                    <button id="popup-btn">Ok</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

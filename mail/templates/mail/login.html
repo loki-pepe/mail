@@ -1,0 +1,45 @@
+{% extends "mail/layout.html" %}
+
+{% block body %}
+
+    <div id="log-reg-screen">
+        <div id="log-reg-box">
+            <div>
+                <h2 id="log-reg-title">Login</h2>
+            </div>
+
+            <div id="log-reg-message">
+                {% if message %}
+                    {{ message }}
+                {% endif %}
+            </div>
+
+            <div id="log-reg-form">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="log-reg-field focused">
+                        <span id="input-email-label" class="label">
+                            <label for="input-email">Email</label>
+                        </span>
+                        <div>
+                            <input autofocus required type="email" class="log-reg-input" id="input-email" name="email">
+                        </div>
+                    </div>
+                    <div class="log-reg-field">
+                        <span id="input-password-label" class="label">
+                            <label for="input-password">Password</label>
+                        </span>
+                        <div>
+                            <input required type="password" class="log-reg-input" id="input-password" name="password">
+                        </div>
+                    </div>
+                    <button type="submit" value="Login">Login</button>
+                </form>
+            </div>
+            <div>
+                Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

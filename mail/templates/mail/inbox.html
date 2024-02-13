@@ -1,0 +1,109 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="title">
+        <h2 id="user">{{ request.user.email }}</h2>
+    </div>
+
+    <div id="page-body">
+        <div id="body-menu">
+            <div id="compose-box">
+                <button id="compose">Compose</button>
+            </div>
+            <div id="mailbox-buttons">
+                <button id="inbox">
+                    <div id="inbox-icon" class="mailbox-icon"></div>
+                    <span>Inbox</span>
+                </button>
+                <button id="sent">
+                    <div id="sent-icon" class="mailbox-icon"></div>
+                    <span>Sent</span>
+                </button>
+                <button id="archive">
+                    <div id="archived-icon" class="mailbox-icon"></div>
+                    <span>Archive</span>
+                </button>
+            </div>
+            <div id="logout">
+                <a href="{% url 'logout' %}"><button>Log Out</button></a>
+            </div>
+            <hr>
+        </div>
+
+        <div id="body-container">
+            <div id="emails-view">
+                <div id="mailbox-body-title" name="body-title">
+                    <div id="mailbox-name">
+                    </div>
+                    <div id="mailbox-page">
+                    </div>
+                    <div id="nav-back" class="nav-btn mini-btn-box">
+                    </div>
+                    <div id="nav-forward" class="nav-btn mini-btn-box">
+                    </div>
+                </div>
+                <div id="mailbox-box">
+                </div>
+            </div>
+
+            <div id="compose-view">
+                <div id="compose-body-title" name="body-title">
+                    <h3>New Email</h3>
+                </div>
+                <div id="compose-box">
+                    <form id="compose-form">
+                        <div id="compose-sender-box">
+                            <div>From:</div> 
+                            <input disabled value="{{ request.user.email }}">
+                        </div>
+                        <hr>
+                        <div id="compose-recipients-box">
+                            <div>To:</div> 
+                            <input id="compose-recipients" placeholder="Recipients">
+                        </div>
+                        <hr>
+                        <div id="compose-subject-box">
+                            <input id="compose-subject" placeholder="Subject">
+                        </div>
+                        <hr>
+                        <div id="compose-body-box">
+                            <textarea id="compose-body" placeholder="Body"></textarea>
+                            <button id="send-button" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="read-view">
+                <div id="read-body-title" name="body-title">
+                    <h3 id="read-subject">
+                    </h3>
+                    <div id="read-button-container" class="mini-btn-box">
+                    </div>
+                    <div id="archive-button-container" class="mini-btn-box">
+                    </div>
+                </div>
+                <div id="read-box">
+                    <div id="read-info">
+                        <div id="read-addresses">
+                            <div id="read-sender">
+                            </div>
+                            <div id="read-recipients">
+                            </div>
+                        </div>
+                        <div id="time-reply">
+                            <div id="read-timestamp" class="timestamp">
+                            </div>
+                            <div id="reply-button-container" class="mini-btn-box">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="read-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
